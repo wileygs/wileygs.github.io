@@ -11,7 +11,9 @@
 <body>
     <main>
         <header>
-            <h1>Welcome to my universe :)</h1>
+            <h1 class="led-text">
+
+            </h1>
         </header>
 
         <div class="profileContainer">
@@ -42,7 +44,8 @@
             </div>
             <div class="projectContainer">
                 <img src="website snapshots/screeny.png" alt="placeholder image" height="500" width="500">
-                <p>This website! <a href="projects/thiswebsite.html">(Check out how I did this updating display!)</a></p>
+                <p>This website! <a href="projects/thiswebsite.html">(Check out how I did this updating display!)</a>
+                </p>
             </div>
             <div class="projectContainer">
                 <img src="images/placeholder.jpg" alt="placeholder image">
@@ -51,5 +54,36 @@
         </div>
     </main>
 </body>
+<script>
+  const ledText = document.querySelector('.led-text');
+  const messages = [
+    "Wiley Scheideman's Universe",
+    "Welcome to my universe :)"
+  ];
+  let index = 0;
+
+  function renderText(text) {
+    ledText.innerHTML = '';
+    const chars = [...text];
+    const total = chars.length;
+
+    chars.forEach((char, i) => {
+      const span = document.createElement('span');
+      span.textContent = char === ' ' ? '\u00A0' : char;
+      span.style.animationDelay = `${(total - i) * 0.1}s`;
+      ledText.appendChild(span);
+    });
+  }
+
+  function cycleMessages() {
+    renderText(messages[index]);
+    index = (index + 1) % messages.length;
+  }
+
+  cycleMessages();
+  setInterval(cycleMessages, 4000);
+</script>
+
+
 
 </html>

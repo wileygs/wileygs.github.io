@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiley Scheideman's Universe - Home</title>
+    <title>Wiley Scheideman's Universe - Project Template</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
     <main>
         <header>
-            <h1>Welcome to my universe :)</h1>
+            <h1 class="home"><a href="/index.html">Home</a></h1>
+            <h1 class="led-text"></h1>
         </header>
 
         <div class="profileContainer">
@@ -29,5 +30,23 @@
         </div>
     </main>
 </body>
+<script>
+    const ledText = document.querySelector('.led-text');
+    const message = "Template Project Page";
+
+    function renderStaticText(text) {
+        const chars = [...text]
+        const total = chars.length;
+
+        chars.forEach((char, i) => {
+            const span = document.createElement('span');
+            span.textContent = char === ' ' ? '\u00A0' : char;
+            span.style.animationDelay = `${(total - i) * 0.2}s`;
+            ledText.appendChild(span);
+        });
+    }
+
+    renderStaticText(message);
+</script>
 
 </html>
