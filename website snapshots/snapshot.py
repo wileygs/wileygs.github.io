@@ -7,8 +7,8 @@ import io
 # === CONFIGURATION ===
 url = "http://127.0.0.1:5500/index.html"
 output_file = "website snapshots/screeny.png"
-viewport_width = 1000
-viewport_height = 1000
+viewport_width = 2000
+viewport_height = 2000
 background_color = (255, 136, 229)  # optional if padding needed
 
 # === SETUP SELENIUM ===
